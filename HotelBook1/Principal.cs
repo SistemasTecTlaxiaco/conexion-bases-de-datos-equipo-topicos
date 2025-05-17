@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace HotelBook1
 {
@@ -17,52 +18,41 @@ namespace HotelBook1
         public Principal()
         {
             InitializeComponent();
-            this.Text = "Sistema de Gestión de Reservas";
-            this.WindowState = FormWindowState.Maximized; // ✔ Correcto // Maximizar ventana  
-
-            // Inicializar el panel  
-            panel = new Panel();
-            panel.Dock = DockStyle.Fill;
-            this.Controls.Add(panel);
+           
         }
+      
 
-        // Método para abrir formularios hijos en el panel principal  
-        private void AbrirFormulario(Form formularioHijo)
-        {
-            // Cerrar formulario anterior si existe  
-            if (panel.Controls.Count > 0)
-                panel.Controls[0].Dispose();
 
-            formularioHijo.TopLevel = false;
-            formularioHijo.FormBorderStyle = FormBorderStyle.None;
-            formularioHijo.Dock = DockStyle.Fill;
-            panel.Controls.Add(formularioHijo);
-            panel.Tag = formularioHijo;
-            formularioHijo.Show();
-        }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
-            Reserva frm = new Reserva();
-            AbrirFormulario(frm);
+           
+
+            Reserva reserva= new Reserva();
+            reserva.ShowDialog();
+            // Mostrar el formulario de registro como diálogo modal
+
+            // O usa this.Close() si quieres cerrarlo completamente
         }
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            ConsultarReserva frm = new ConsultarReserva();
-            AbrirFormulario(frm);
+            ConsultarReserva Creserva= new ConsultarReserva();
+            Creserva.ShowDialog();
+            // O usa this.Close() si quieres cerrarlo completamente
         }
 
         private void btnCancerlar_Click(object sender, EventArgs e)
         {
-            CancelarReserva frm = new CancelarReserva();
-            AbrirFormulario(frm);
+            CancelarReserva Clreserva= new CancelarReserva();
+            Clreserva.ShowDialog();
         }
 
         private void btnHabitaciones_Click(object sender, EventArgs e)
         {
             Habitaciones frm = new Habitaciones();
-            AbrirFormulario(frm);
+            frm.ShowDialog();
+            
         }
 
         private void btnSalir_Click(object sender, EventArgs e)

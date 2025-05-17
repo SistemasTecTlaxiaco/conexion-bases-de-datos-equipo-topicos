@@ -15,6 +15,8 @@ namespace HotelBook1
         public Reserva()
         {
             InitializeComponent();
+
+            
             // Inicializar el ComboBox con tipos de habitación
             cmbHabitacion.Items.Add("Individual");
             cmbHabitacion.Items.Add("Doble");
