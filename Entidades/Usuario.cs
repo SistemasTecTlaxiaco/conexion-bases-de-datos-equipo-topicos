@@ -51,7 +51,7 @@ namespace Entidades
             using (MySqlConnection conn = ConexionBD.ObtenerConexion())
             {
                 conn.Open();
-                string query = "SELECT COUNT(*) FROM usuarios WHERE nombre_usuario = @usuario AND contraseña = @contraseña";
+                string query = "SELECT COUNT(*) FROM usuario WHERE usuario = @usuario AND contraseña = @contraseña";
                 MySqlCommand cmd = new MySqlCommand(query, conn);
                 cmd.Parameters.AddWithValue("@usuario", usuario);
                 cmd.Parameters.AddWithValue("@contraseña", contraseña);
