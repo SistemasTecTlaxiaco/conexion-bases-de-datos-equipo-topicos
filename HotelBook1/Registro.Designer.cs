@@ -38,75 +38,75 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(489, 359);
-            this.btnCancelar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
+            this.btnCancelar.Location = new System.Drawing.Point(483, 299);
             this.btnCancelar.Name = "btnCancelar";
-            this.btnCancelar.Size = new System.Drawing.Size(100, 28);
+            this.btnCancelar.Size = new System.Drawing.Size(105, 55);
             this.btnCancelar.TabIndex = 15;
             this.btnCancelar.Text = "Cancelar";
-            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
             // btnResgistrar
             // 
-            this.btnResgistrar.Location = new System.Drawing.Point(97, 359);
-            this.btnResgistrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnResgistrar.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btnResgistrar.Location = new System.Drawing.Point(128, 200);
             this.btnResgistrar.Name = "btnResgistrar";
-            this.btnResgistrar.Size = new System.Drawing.Size(100, 28);
+            this.btnResgistrar.Size = new System.Drawing.Size(369, 56);
             this.btnResgistrar.TabIndex = 14;
             this.btnResgistrar.Text = "Registrar";
-            this.btnResgistrar.UseVisualStyleBackColor = true;
+            this.btnResgistrar.UseVisualStyleBackColor = false;
             this.btnResgistrar.Click += new System.EventHandler(this.btnResgistrar_Click);
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(323, 141);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(4);
+            this.textBox2.Location = new System.Drawing.Point(168, 147);
             this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(385, 22);
+            this.textBox2.Size = new System.Drawing.Size(290, 20);
             this.textBox2.TabIndex = 12;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(323, 63);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsuario.Location = new System.Drawing.Point(168, 89);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(385, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(290, 20);
             this.txtUsuario.TabIndex = 11;
             // 
             // txtContraseña
             // 
             this.txtContraseña.AutoSize = true;
-            this.txtContraseña.Location = new System.Drawing.Point(93, 141);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtContraseña.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtContraseña.Location = new System.Drawing.Point(253, 118);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(76, 16);
+            this.txtContraseña.Size = new System.Drawing.Size(117, 26);
             this.txtContraseña.TabIndex = 9;
             this.txtContraseña.Text = "Contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(93, 72);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(224, 47);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(122, 16);
+            this.label1.Size = new System.Drawing.Size(191, 26);
             this.label1.TabIndex = 8;
             this.label1.Text = "Nombre de usuario";
             // 
             // Registro
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnResgistrar);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Registro";
             this.Text = "Registro";
+            this.Load += new System.EventHandler(this.Registro_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

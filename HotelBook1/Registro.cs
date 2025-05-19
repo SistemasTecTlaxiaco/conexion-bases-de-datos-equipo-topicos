@@ -95,5 +95,10 @@ namespace HotelBook1
             this.DialogResult = DialogResult.Cancel;
             this.Close();
         }
+
+        private void Registro_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
