@@ -21,5 +21,10 @@ namespace HotelBook1
         {
 
         }
+
+        private void Habitaciones_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

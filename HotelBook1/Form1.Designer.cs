@@ -38,73 +38,73 @@
             // 
             // btnRegistrar
             // 
-            this.btnRegistrar.Location = new System.Drawing.Point(430, 290);
-            this.btnRegistrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnRegistrar.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.btnRegistrar.Location = new System.Drawing.Point(322, 236);
             this.btnRegistrar.Name = "btnRegistrar";
-            this.btnRegistrar.Size = new System.Drawing.Size(179, 43);
+            this.btnRegistrar.Size = new System.Drawing.Size(134, 35);
             this.btnRegistrar.TabIndex = 11;
             this.btnRegistrar.Text = "Registrarse";
-            this.btnRegistrar.UseVisualStyleBackColor = true;
+            this.btnRegistrar.UseVisualStyleBackColor = false;
             this.btnRegistrar.Click += new System.EventHandler(this.btnRegistrar_Click);
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(217, 188);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Location = new System.Drawing.Point(268, 122);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(76, 16);
+            this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 10;
             this.label2.Text = "Contraseña";
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(217, 121);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(268, 40);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(54, 16);
+            this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 9;
             this.label1.Text = "Usuario";
             // 
             // txtContraseña
             // 
-            this.txtContraseña.Location = new System.Drawing.Point(361, 184);
-            this.txtContraseña.Margin = new System.Windows.Forms.Padding(4);
+            this.txtContraseña.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtContraseña.Location = new System.Drawing.Point(200, 150);
             this.txtContraseña.Name = "txtContraseña";
-            this.txtContraseña.Size = new System.Drawing.Size(281, 22);
+            this.txtContraseña.Size = new System.Drawing.Size(212, 20);
             this.txtContraseña.TabIndex = 8;
             // 
             // txtUsuario
             // 
-            this.txtUsuario.Location = new System.Drawing.Point(361, 118);
-            this.txtUsuario.Margin = new System.Windows.Forms.Padding(4);
+            this.txtUsuario.BackColor = System.Drawing.SystemColors.InactiveCaption;
+            this.txtUsuario.Location = new System.Drawing.Point(200, 71);
             this.txtUsuario.Name = "txtUsuario";
-            this.txtUsuario.Size = new System.Drawing.Size(281, 22);
+            this.txtUsuario.Size = new System.Drawing.Size(212, 20);
             this.txtUsuario.TabIndex = 7;
             // 
             // btnIniciar
             // 
-            this.btnIniciar.Location = new System.Drawing.Point(158, 290);
-            this.btnIniciar.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnIniciar.Location = new System.Drawing.Point(118, 236);
+            this.btnIniciar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.btnIniciar.Name = "btnIniciar";
-            this.btnIniciar.Size = new System.Drawing.Size(195, 43);
+            this.btnIniciar.Size = new System.Drawing.Size(146, 35);
             this.btnIniciar.TabIndex = 6;
             this.btnIniciar.Text = "Iniciar sesión";
-            this.btnIniciar.UseVisualStyleBackColor = true;
+            this.btnIniciar.UseVisualStyleBackColor = false;
             this.btnIniciar.Click += new System.EventHandler(this.btnIniciar_Click);
             // 
             // panel
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnRegistrar);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnIniciar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "panel";
             this.Text = "Form1";
             this.ResumeLayout(false);
