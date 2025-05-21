@@ -34,16 +34,17 @@
             this.txtUsuario = new System.Windows.Forms.TextBox();
             this.txtContraseña = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // btnCancelar
             // 
             this.btnCancelar.BackColor = System.Drawing.Color.IndianRed;
-            this.btnCancelar.Location = new System.Drawing.Point(483, 299);
+            this.btnCancelar.Location = new System.Drawing.Point(265, 316);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(105, 55);
             this.btnCancelar.TabIndex = 15;
-            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.Text = "Eliminar";
             this.btnCancelar.UseVisualStyleBackColor = false;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
@@ -92,11 +93,24 @@
             this.label1.TabIndex = 8;
             this.label1.Text = "Nombre de usuario";
             // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
+            this.button1.Location = new System.Drawing.Point(128, 262);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(369, 48);
+            this.button1.TabIndex = 16;
+            this.button1.Text = "Modificar";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // Registro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.AppWorkspace;
             this.ClientSize = new System.Drawing.Size(600, 366);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnResgistrar);
             this.Controls.Add(this.textBox2);
@@ -120,5 +134,6 @@
         private System.Windows.Forms.TextBox txtUsuario;
         private System.Windows.Forms.Label txtContraseña;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button button1;
     }
 }

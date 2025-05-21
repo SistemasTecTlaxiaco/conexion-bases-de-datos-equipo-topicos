@@ -124,6 +124,7 @@
             this.label5.Size = new System.Drawing.Size(153, 13);
             this.label5.TabIndex = 17;
             this.label5.Text = "Administración de habitaciones";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label4
             // 
@@ -183,7 +184,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Habitaciones";
             this.Text = "Habitaciones";
             this.Load += new System.EventHandler(this.Habitaciones_Load);

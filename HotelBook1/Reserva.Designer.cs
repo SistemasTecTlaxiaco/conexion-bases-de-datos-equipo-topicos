@@ -46,9 +46,9 @@
             // btnReserva
             // 
             this.btnReserva.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnReserva.Location = new System.Drawing.Point(190, 274);
+            this.btnReserva.Location = new System.Drawing.Point(54, 263);
             this.btnReserva.Name = "btnReserva";
-            this.btnReserva.Size = new System.Drawing.Size(325, 47);
+            this.btnReserva.Size = new System.Drawing.Size(246, 52);
             this.btnReserva.TabIndex = 23;
             this.btnReserva.Text = "Reservar";
             this.btnReserva.UseVisualStyleBackColor = false;
@@ -166,7 +166,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Reserva";
             this.Text = "Reserva";
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).EndInit();
