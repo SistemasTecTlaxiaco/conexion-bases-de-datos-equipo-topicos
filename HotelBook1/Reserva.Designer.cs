@@ -46,7 +46,7 @@
             // btnReserva
             // 
             this.btnReserva.BackColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btnReserva.Location = new System.Drawing.Point(54, 263);
+            this.btnReserva.Location = new System.Drawing.Point(257, 263);
             this.btnReserva.Name = "btnReserva";
             this.btnReserva.Size = new System.Drawing.Size(246, 52);
             this.btnReserva.TabIndex = 23;
@@ -153,6 +153,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ActiveBorder;
             this.ClientSize = new System.Drawing.Size(600, 366);
             this.Controls.Add(this.btnReserva);
             this.Controls.Add(this.numPersonas);

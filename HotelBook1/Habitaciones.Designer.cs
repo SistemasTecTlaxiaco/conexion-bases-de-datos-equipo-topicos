@@ -46,7 +46,7 @@
             // 
             // btnEliminar
             // 
-            this.btnEliminar.Location = new System.Drawing.Point(83, 378);
+            this.btnEliminar.Location = new System.Drawing.Point(145, 326);
             this.btnEliminar.Name = "btnEliminar";
             this.btnEliminar.Size = new System.Drawing.Size(121, 40);
             this.btnEliminar.TabIndex = 25;
@@ -170,6 +170,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(687, 455);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
