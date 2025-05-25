@@ -7,65 +7,57 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Entidades;
 
 namespace HotelBook1
 {
     public partial class Reserva : Form
     {
+        Reservas nuevaReserva = new Reservas();
         public Reserva()
         {
             InitializeComponent();
-
-            
-            // Inicializar el ComboBox con tipos de habitación
-            cmbHabitacion.Items.Add("Individual");
-            cmbHabitacion.Items.Add("Doble");
-            cmbHabitacion.Items.Add("Suite");
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
-            // Obtener los datos del formulario
-            string nombreCliente = txtNombreCliente.Text;
-            DateTime fechaEntrada = dtpEntrada.Value;
-            DateTime fechaSalida = dtpSalida.Value;
-            string habitacion = cmbHabitacion.SelectedItem?.ToString(); // Verifica si hay un elemento seleccionado
-            int numeroPersonas = (int)numPersonas.Value;
-
-            // Validaciones básicas
-            if (string.IsNullOrWhiteSpace(nombreCliente))
             {
-                MessageBox.Show("Por favor, ingrese el nombre del cliente.");
-                return;
-            }
+                // Asignar valores
+                nuevaReserva.Cliente = txtCliente.Text;
+                nuevaReserva.FechaEntrada = dtpEntrada.Value;
+                nuevaReserva.FechaSalida = dtpSalida.Value;
+                nuevaReserva.Habitacion = cmbHabitacion.Text;
+                nuevaReserva.NumeroPersonas = (int)numPersonas.Value;
 
-            if (habitacion == null)
-            {
-                MessageBox.Show("Por favor, seleccione una habitación.");
-                return;
-            }
+                // Registrar
+                bool resultado = nuevaReserva.Registrar();
 
-            if (fechaSalida <= fechaEntrada)
-            {
-                MessageBox.Show("La fecha de salida debe ser posterior a la fecha de entrada.");
-                return;
+                if (resultado)
+                {
+                    MessageBox.Show("Reserva registrada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LimpiarCampos();
+                }
+                else
+                {
+                    MessageBox.Show("Error al registrar la reserva.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
+        }
+        private void LimpiarCampos()
+        {
+            txtCliente.Clear();
+            cmbHabitacion.SelectedIndex = -1; // Cambiar Clear() por SelectedIndex = -1 para limpiar la selección  
+            numPersonas.Value = 1;
+            dtpEntrada.Value = DateTime.Now;
+            dtpSalida.Value = DateTime.Now.AddDays(1);
+        }
 
-            if (numeroPersonas <= 0)
-            {
-                MessageBox.Show("El número de personas debe ser mayor que cero.");
-                return;
-            }
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CosultarReservas R= new CosultarReservas();
+            R.Show();
 
-            // Aquí se podrían guardar los datos en una base de datos o procesarlos
-            // Mostrar mensaje de éxito
-            MessageBox.Show("Reserva realizada con éxito:\n\n" +
-                            $"Cliente: {nombreCliente}\n" +
-                            $"Entrada: {fechaEntrada.ToShortDateString()}\n" +
-                            $"Salida: {fechaSalida.ToShortDateString()}\n" +
-                            $"Habitación: {habitacion}\n" +
-                            $"Personas: {numeroPersonas}");
         }
     }
-    }
+}
 

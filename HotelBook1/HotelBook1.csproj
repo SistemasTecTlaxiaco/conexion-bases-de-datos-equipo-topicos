@@ -101,29 +101,17 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CancelarReserva.cs">
+    <Compile Include="CosultarReservas.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelarReserva.Designer.cs">
-      <DependentUpon>CancelarReserva.cs</DependentUpon>
-    </Compile>
-    <Compile Include="ConsultarReserva.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ConsultarReserva.Designer.cs">
-      <DependentUpon>ConsultarReserva.cs</DependentUpon>
+    <Compile Include="CosultarReservas.Designer.cs">
+      <DependentUpon>CosultarReservas.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Habitaciones.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Habitaciones.Designer.cs">
-      <DependentUpon>Habitaciones.cs</DependentUpon>
     </Compile>
     <Compile Include="Principal.cs">
       <SubType>Form</SubType>
@@ -145,17 +133,11 @@
     <Compile Include="Reserva.Designer.cs">
       <DependentUpon>Reserva.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="CancelarReserva.resx">
-      <DependentUpon>CancelarReserva.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ConsultarReserva.resx">
-      <DependentUpon>ConsultarReserva.cs</DependentUpon>
+    <EmbeddedResource Include="CosultarReservas.resx">
+      <DependentUpon>CosultarReservas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Habitaciones.resx">
-      <DependentUpon>Habitaciones.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Principal.resx">
       <DependentUpon>Principal.cs</DependentUpon>

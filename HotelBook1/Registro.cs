@@ -24,48 +24,49 @@ namespace HotelBook1
 
 
 
-        // Método que valida los campos del formulario
+
+        // Validar campos del formulario
         private bool ValidarCampos()
         {
-            // Verifica si el campo de usuario está vacío
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
             {
                 MessageBox.Show("Por favor ingrese un nombre de usuario", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtUsuario.Focus(); // Coloca el cursor en el campo vacío
+                txtUsuario.Focus();
                 return false;
             }
 
-            // Verifica si la contraseña está vacía
-            if (string.IsNullOrWhiteSpace(txtContraseña.Text))
+            if (string.IsNullOrWhiteSpace(lbContraseña.Text))
             {
                 MessageBox.Show("Por favor ingrese una contraseña", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                txtContraseña.Focus();
+                lbContraseña.Focus();
                 return false;
             }
 
-           
-
-            // Si todo está correcto, devuelve true
             return true;
         }
-        // Método que ejecuta el proceso de registro en segundo plano
 
+        // Método para ejecutar el registro en segundo plano
         private void EjecutarRegistro(string usuario, string contraseña)
         {
-            // Asignamos los valores a las propiedades del objeto
+            // Siempre crea un nuevo objeto Usuario
+            Usuario gestor = new Usuario();
             gestor.NUsuario = usuario;
             gestor.Contraseña = contraseña;
 
-            // Llamamos al método Registrar sin parámetros
+            // Verifica que los datos se estén pasando correctamente
+            MessageBox.Show($"Registrando usuario: {gestor.NUsuario}\nContraseña: {gestor.Contraseña}");
+
             bool exito = gestor.Registrar();
 
-            this.Invoke(new Action(() =>
+            _ = this.Invoke(new Action(() =>
             {
                 if (exito)
                 {
                     MessageBox.Show("Usuario registrado correctamente.");
+                    txtUsuario.Clear();
+                    txtcontraseña.Clear();
                     this.Close();
                 }
                 else
@@ -78,18 +79,16 @@ namespace HotelBook1
         }
 
         private void btnResgistrar_Click(object sender, EventArgs e)
-        {
-            // Primero validamos los campos
+        { 
             if (!ValidarCampos()) return;
 
-            // Deshabilitamos el botón para evitar clics múltiples
             btnResgistrar.Enabled = false;
 
-            // Creamos un nuevo hilo para ejecutar el registro
-            Thread hiloRegistro = new Thread(() => EjecutarRegistro(txtUsuario.Text, txtContraseña.Text));
-            hiloRegistro.Start(); // Iniciamos el hilo
+            // Lanza el registro en un hilo
+            Thread hiloRegistro = new Thread(() =>
+                EjecutarRegistro(txtUsuario.Text.Trim(), txtcontraseña.Text.Trim()));
+        hiloRegistro.Start();
         }
-
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;

@@ -13,15 +13,13 @@ namespace HotelBook1
 {
     public partial class Principal : Form
     {
-        private Panel panel; // Agregar una referencia de objeto para el panel  
-
+      
         public Principal()
         {
             InitializeComponent();
            
         }
       
-
 
 
         private void btnReserva_Click(object sender, EventArgs e)
@@ -37,21 +35,18 @@ namespace HotelBook1
 
         private void btnConsultar_Click(object sender, EventArgs e)
         {
-            ConsultarReserva Creserva= new ConsultarReserva();
-            Creserva.ShowDialog();
-            // O usa this.Close() si quieres cerrarlo completamente
+            
+        
         }
 
         private void btnCancerlar_Click(object sender, EventArgs e)
         {
-            CancelarReserva Clreserva= new CancelarReserva();
-            Clreserva.ShowDialog();
+           
         }
 
         private void btnHabitaciones_Click(object sender, EventArgs e)
         {
-            Habitaciones frm = new Habitaciones();
-            frm.ShowDialog();
+          
             
         }
 
@@ -67,6 +62,12 @@ namespace HotelBook1
         private void label1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            CosultarReservas R = new CosultarReservas();
+            R.Show();
         }
     }
 }
