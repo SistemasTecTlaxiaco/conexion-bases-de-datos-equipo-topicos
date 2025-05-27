@@ -58,6 +58,46 @@ namespace HotelBook1
             R.Show();
 
         }
+
+        private void cmbHabitacion_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbHabitacion.SelectedItem != null)
+            {
+                string habitacionSeleccionada = cmbHabitacion.SelectedItem.ToString();
+
+                if (habitacionSeleccionada == "Individual")
+                {
+                    numPersonas.Maximum = 1; // Máximo 1 persona para individual
+                }
+                else if (habitacionSeleccionada == "Matrimonial")
+                {
+                    numPersonas.Maximum = 2; // Máximo 2 personas para matrimonial
+                }
+            }
     }
-}
+
+        private void numPersonas_ValueChanged(object sender, EventArgs e)
+        {
+            if (cmbHabitacion.SelectedItem != null)
+            {
+                string habitacion = cmbHabitacion.SelectedItem.ToString();
+
+                if (habitacion == "Individual" && numPersonas.Value > 1)
+                {
+                    numPersonas.Value = 1;
+                    MessageBox.Show("La habitación individual solo permite 1 persona", "Advertencia",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+                else if (habitacion == "Matrimonial" && numPersonas.Value > 2)
+                {
+                    numPersonas.Value = 2;
+                    MessageBox.Show("La habitación matrimonial solo permite 2 personas", "Advertencia",
+                                  MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+        }
+    }
+    }
+
+
 
