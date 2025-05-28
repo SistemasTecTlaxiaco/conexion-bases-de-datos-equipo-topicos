@@ -90,6 +90,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "CosultarReservas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CosultarReservas";
             this.Load += new System.EventHandler(this.CosultarReservas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reserva)).EndInit();
