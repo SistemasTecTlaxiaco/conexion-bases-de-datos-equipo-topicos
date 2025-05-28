@@ -133,6 +133,7 @@
     <Compile Include="Reserva.Designer.cs">
       <DependentUpon>Reserva.cs</DependentUpon>
     </Compile>
+    <Compile Include="utilidades.cs" />
     <EmbeddedResource Include="CosultarReservas.resx">
       <DependentUpon>CosultarReservas.cs</DependentUpon>
     </EmbeddedResource>
