@@ -17,6 +17,19 @@ namespace HotelBook1
         public Reserva()
         {
             InitializeComponent();
+             
+            cmbHabitacion.DropDownStyle = ComboBoxStyle.DropDownList; // Solo selección
+            CargarOpcionesHabitacion(); // Cargar "Individual" y "Matrimonial"
+        }
+
+        private void CargarOpcionesHabitacion()
+        {
+            cmbHabitacion.Items.Clear();
+            cmbHabitacion.Items.Add("Individual");
+            cmbHabitacion.Items.Add("Matrimonial");
+            cmbHabitacion.SelectedIndex = -1;
+        }
+
         }
 
         private void btnReserva_Click(object sender, EventArgs e)
@@ -67,14 +80,20 @@ namespace HotelBook1
 
                 if (habitacionSeleccionada == "Individual")
                 {
-                    numPersonas.Maximum = 1; // Máximo 1 persona para individual
+                    numPersonas.Maximum = 1;
                 }
                 else if (habitacionSeleccionada == "Matrimonial")
                 {
-                    numPersonas.Maximum = 2; // Máximo 2 personas para matrimonial
+                    numPersonas.Maximum = 2;
+                }
+                else
+                {
+                    MessageBox.Show("Seleccione un tipo de habitación válido.", "Advertencia",
+                        MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    cmbHabitacion.SelectedIndex = -1;
                 }
             }
-    }
+        }
 
         private void numPersonas_ValueChanged(object sender, EventArgs e)
         {
@@ -95,6 +114,29 @@ namespace HotelBook1
                                   MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
+        }
+
+        private void txtCliente_TextChanged(object sender, EventArgs e)
+
+        {
+            int cursorPosition = txtCliente.SelectionStart;
+
+            // Solo letras y espacios
+            string filteredText = new string(txtCliente.Text
+                .Where(c => char.IsLetter(c) || char.IsWhiteSpace(c))
+                .ToArray());
+
+            if (filteredText != txtCliente.Text)
+            {
+                txtCliente.Text = filteredText;
+                txtCliente.SelectionStart = Math.Min(cursorPosition, txtCliente.Text.Length);
+            }
+        }
+
+
+        private void dtpEntrada_ValueChanged(object sender, EventArgs e)
+        {
+
         }
     }
     }
