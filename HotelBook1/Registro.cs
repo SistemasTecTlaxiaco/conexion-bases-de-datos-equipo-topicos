@@ -22,24 +22,8 @@ namespace HotelBook1
             InitializeComponent();
             txtcontraseña.UseSystemPasswordChar = true;
         }
-
-        // Método para encriptar contraseña con SHA-256
-        private string EncriptarSHA256(string texto)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] bytes = Encoding.UTF8.GetBytes(texto);
-                byte[] hash = sha256.ComputeHash(bytes);
-                StringBuilder builder = new StringBuilder();
-                foreach (byte b in hash)
-                {
-                    builder.Append(b.ToString("x2"));
-                }
-                return builder.ToString();
-            }
-        }
-
-        // Validar campos del formulario
+      
+        
         private bool ValidarCampos()
         {
             if (string.IsNullOrWhiteSpace(txtUsuario.Text))
@@ -66,7 +50,7 @@ namespace HotelBook1
         {
             Usuario gestor = new Usuario();
             gestor.NUsuario = usuario;
-            gestor.Contraseña = EncriptarSHA256(contraseña); // Encriptar aquí
+            gestor.Contraseña = Utilidades.HashPassword(contraseña); // Encriptar aquí con nueva función
 
             bool exito = gestor.Registrar();
 
@@ -87,7 +71,6 @@ namespace HotelBook1
                 btnResgistrar.Enabled = true;
             }));
         }
-
         private void btnResgistrar_Click(object sender, EventArgs e)
         {
             if (!ValidarCampos()) return;

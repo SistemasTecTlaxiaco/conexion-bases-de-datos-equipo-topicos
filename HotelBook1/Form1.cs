@@ -31,12 +31,12 @@ namespace HotelBook1
             hiloLogin.Start();
 
         }
-
         private void ValidarLogin(string usuario, string contraseña)
         {
             try
             {
-                bool acceso = gestor.Login(usuario, contraseña); // gestor es tu clase DAO o manejador
+                string contraseñaHash = Utilidades.HashPassword(contraseña);
+                bool acceso = gestor.Login(usuario, contraseñaHash);
 
                 this.Invoke(new Action(() =>
                 {
@@ -44,12 +44,10 @@ namespace HotelBook1
                     {
                         MessageBox.Show("¡Bienvenido!");
 
-                        // Abrir el nuevo formulario (por ejemplo: FormMenu)
                         Principal menu = new Principal();
                         menu.Show();
 
-                        // Ocultar el formulario actual de login
-                        this.Hide(); // O usa this.Close() si quieres cerrarlo completamente
+                        this.Hide();
                     }
                     else
                     {
