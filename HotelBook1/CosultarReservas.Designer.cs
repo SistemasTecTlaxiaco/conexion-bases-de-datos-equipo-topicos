@@ -74,6 +74,7 @@
             this.Controls.Add(this.reserva);
             this.Controls.Add(this.label1);
             this.Name = "CosultarReservas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CosultarReservas";
             this.Load += new System.EventHandler(this.CosultarReservas_Load);
             ((System.ComponentModel.ISupportInitialize)(this.reserva)).EndInit();

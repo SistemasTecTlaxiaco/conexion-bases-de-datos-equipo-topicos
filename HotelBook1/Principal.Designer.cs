@@ -38,7 +38,7 @@
             // 
             this.btnSalir.BackColor = System.Drawing.Color.IndianRed;
             this.btnSalir.Location = new System.Drawing.Point(273, 226);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.Size = new System.Drawing.Size(189, 54);
             this.btnSalir.TabIndex = 11;
@@ -50,7 +50,7 @@
             // 
             this.btnReserva.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.btnReserva.Location = new System.Drawing.Point(76, 119);
-            this.btnReserva.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnReserva.Margin = new System.Windows.Forms.Padding(4);
             this.btnReserva.Name = "btnReserva";
             this.btnReserva.Size = new System.Drawing.Size(249, 54);
             this.btnReserva.TabIndex = 7;
@@ -93,6 +93,7 @@
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Principal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Principal";
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -164,10 +164,21 @@ namespace HotelBook1
 
         private void dtpEntrada_ValueChanged(object sender, EventArgs e)
         {
+            if (dtpEntrada.Value.Date < DateTime.Today)
+            {
+                MessageBox.Show("La fecha de entrada no puede ser anterior a hoy.", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                dtpEntrada.Value = DateTime.Today;
+            }
 
+            // Asegurar que la fecha de salida siga siendo válida si la fecha de entrada cambió
+            if (dtpSalida.Value <= dtpEntrada.Value)
+            {
+                dtpSalida.Value = dtpEntrada.Value.AddDays(1);
+            }
         }
     }
     }
+    
 
 
 
