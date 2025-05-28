@@ -131,7 +131,7 @@ namespace HotelBook1
         {
             string contraseña = txtcontraseña.Text;
 
-            // Solo validamos si hay exactamente 8 caracteres
+            // Validar solo si tiene exactamente 8 caracteres
             if (contraseña.Length == 8)
             {
                 bool tieneMayuscula = contraseña.Any(char.IsUpper);
@@ -144,13 +144,13 @@ namespace HotelBook1
                 else
                 {
                     txtcontraseña.BackColor = Color.LightCoral; // Contraseña inválida
-                                                                // Mensaje opcional (solo una vez para no ser molesto)
-                    MessageBox.Show("La contraseña debe contener al menos una mayúscula y un número.", "Requisitos de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    MessageBox.Show("La contraseña debe contener al menos una letra mayúscula y un número.",
+                        "Contraseña inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                // Si aún no tiene 8 caracteres, restablece el color
+                // Si no tiene exactamente 8 caracteres, color neutro
                 txtcontraseña.BackColor = Color.White;
             }
         }
