@@ -107,7 +107,6 @@ namespace HotelBook1
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
-            // Guardamos la posición actual del cursor
             int cursorPos = txtUsuario.SelectionStart;
 
             // Filtramos el texto para que solo queden letras y espacios
@@ -131,27 +130,26 @@ namespace HotelBook1
         {
             string contraseña = txtcontraseña.Text;
 
-            if (contraseña.Length >= 8)
+            // Solo validamos si hay exactamente 8 caracteres
+            if (contraseña.Length == 8)
             {
                 bool tieneMayuscula = contraseña.Any(char.IsUpper);
-                bool tieneMinuscula = contraseña.Any(char.IsLower);
                 bool tieneNumero = contraseña.Any(char.IsDigit);
-                bool tieneSimbolo = contraseña.Any(c => !char.IsLetterOrDigit(c));
 
-                if (tieneMayuscula && tieneMinuscula && tieneNumero && tieneSimbolo)
+                if (tieneMayuscula && tieneNumero)
                 {
-                    // Contraseña válida: podrías mostrar un icono verde, por ejemplo
-                    txtcontraseña.BackColor = Color.LightGreen;
+                    txtcontraseña.BackColor = Color.LightGreen; // Contraseña válida
                 }
                 else
                 {
-                    // Contraseña inválida: resaltamos o damos aviso visual
-                    txtcontraseña.BackColor = Color.LightCoral;
+                    txtcontraseña.BackColor = Color.LightCoral; // Contraseña inválida
+                                                                // Mensaje opcional (solo una vez para no ser molesto)
+                    MessageBox.Show("La contraseña debe contener al menos una mayúscula y un número.", "Requisitos de contraseña", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 }
             }
             else
             {
-                // Todavía no tiene los 8 caracteres requeridos
+                // Si aún no tiene 8 caracteres, restablece el color
                 txtcontraseña.BackColor = Color.White;
             }
         }
