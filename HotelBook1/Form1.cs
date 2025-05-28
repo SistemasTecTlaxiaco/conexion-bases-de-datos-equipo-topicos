@@ -14,11 +14,13 @@ namespace HotelBook1
 {
     public partial class panel : Form
     {
+        
         Usuario gestor = new Usuario();
 
         public panel()
         {
             InitializeComponent();
+            txtContraseña.UseSystemPasswordChar = true;
         }
 
         private void btnIniciar_Click(object sender, EventArgs e) {
@@ -70,6 +72,16 @@ namespace HotelBook1
 
             // Mostrar el formulario de registro como diálogo modal
             registro.ShowDialog();
+        }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtContraseña_TextChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

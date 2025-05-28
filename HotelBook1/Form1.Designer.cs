@@ -74,6 +74,7 @@
             this.txtContraseña.Name = "txtContraseña";
             this.txtContraseña.Size = new System.Drawing.Size(212, 20);
             this.txtContraseña.TabIndex = 8;
+            this.txtContraseña.TextChanged += new System.EventHandler(this.txtContraseña_TextChanged);
             // 
             // txtUsuario
             // 
@@ -82,12 +83,13 @@
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(212, 20);
             this.txtUsuario.TabIndex = 7;
+            this.txtUsuario.TextChanged += new System.EventHandler(this.txtUsuario_TextChanged);
             // 
             // btnIniciar
             // 
             this.btnIniciar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
             this.btnIniciar.Location = new System.Drawing.Point(118, 236);
-            this.btnIniciar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnIniciar.Margin = new System.Windows.Forms.Padding(2);
             this.btnIniciar.Name = "btnIniciar";
             this.btnIniciar.Size = new System.Drawing.Size(146, 35);
             this.btnIniciar.TabIndex = 6;
@@ -106,7 +108,7 @@
             this.Controls.Add(this.txtContraseña);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.btnIniciar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "panel";
             this.Text = "Form1";
             this.ResumeLayout(false);
