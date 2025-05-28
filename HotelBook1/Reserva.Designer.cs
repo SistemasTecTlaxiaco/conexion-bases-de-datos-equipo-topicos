@@ -96,6 +96,7 @@
             this.dtpEntrada.Name = "dtpEntrada";
             this.dtpEntrada.Size = new System.Drawing.Size(224, 20);
             this.dtpEntrada.TabIndex = 44;
+            this.dtpEntrada.ValueChanged += new System.EventHandler(this.dtpEntrada_ValueChanged);
             // 
             // txtCliente
             // 
@@ -103,6 +104,7 @@
             this.txtCliente.Name = "txtCliente";
             this.txtCliente.Size = new System.Drawing.Size(224, 20);
             this.txtCliente.TabIndex = 43;
+            this.txtCliente.TextChanged += new System.EventHandler(this.txtCliente_TextChanged);
             // 
             // label6
             // 
@@ -181,7 +183,7 @@
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "Reserva";
             this.Text = "Reserva";
             ((System.ComponentModel.ISupportInitialize)(this.numPersonas)).EndInit();
