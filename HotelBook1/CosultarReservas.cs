@@ -38,5 +38,10 @@ namespace HotelBook1
         {
             CargarReservas();
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
