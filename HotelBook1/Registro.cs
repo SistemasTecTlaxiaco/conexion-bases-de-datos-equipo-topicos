@@ -104,5 +104,58 @@ namespace HotelBook1
         {
 
         }
+
+        private void txtUsuario_TextChanged(object sender, EventArgs e)
+        {
+            // Guardamos la posición actual del cursor
+            int cursorPos = txtUsuario.SelectionStart;
+
+            // Filtramos el texto para que solo queden letras y espacios
+            string textoFiltrado = new string(txtUsuario.Text
+                .Where(c => char.IsLetter(c) || char.IsWhiteSpace(c))
+                .ToArray());
+
+            if (txtUsuario.Text != textoFiltrado)
+            {
+                txtUsuario.Text = textoFiltrado;
+
+                // Restauramos la posición del cursor al final del texto válido
+                txtUsuario.SelectionStart = cursorPos > 0 ? cursorPos - 1 : 0;
+
+                // Opcional: mostrar mensaje solo una vez por modificación
+                MessageBox.Show("Solo se permiten letras y espacios.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void txtcontraseña_TextChanged(object sender, EventArgs e)
+        {
+            string contraseña = txtcontraseña.Text;
+
+            if (contraseña.Length >= 8)
+            {
+                bool tieneMayuscula = contraseña.Any(char.IsUpper);
+                bool tieneMinuscula = contraseña.Any(char.IsLower);
+                bool tieneNumero = contraseña.Any(char.IsDigit);
+                bool tieneSimbolo = contraseña.Any(c => !char.IsLetterOrDigit(c));
+
+                if (tieneMayuscula && tieneMinuscula && tieneNumero && tieneSimbolo)
+                {
+                    // Contraseña válida: podrías mostrar un icono verde, por ejemplo
+                    txtcontraseña.BackColor = Color.LightGreen;
+                }
+                else
+                {
+                    // Contraseña inválida: resaltamos o damos aviso visual
+                    txtcontraseña.BackColor = Color.LightCoral;
+                }
+            }
+            else
+            {
+                // Todavía no tiene los 8 caracteres requeridos
+                txtcontraseña.BackColor = Color.White;
+            }
+        }
+
     }
-}
+    }
+
