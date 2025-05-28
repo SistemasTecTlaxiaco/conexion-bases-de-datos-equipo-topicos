@@ -30,7 +30,35 @@ namespace HotelBook1
             cmbHabitacion.SelectedIndex = -1;
         }
 
+        private bool ValidarCampos()
+        {
+            if (string.IsNullOrWhiteSpace(txtCliente.Text))
+            {
+                MessageBox.Show("El nombre del cliente es obligatorio.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (cmbHabitacion.SelectedIndex == -1)
+            {
+                MessageBox.Show("Debe seleccionar un tipo de habitación.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (dtpEntrada.Value.Date < DateTime.Now.Date)
+            {
+                MessageBox.Show("La fecha de entrada no puede ser anterior a hoy.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            if (dtpSalida.Value <= dtpEntrada.Value)
+            {
+                MessageBox.Show("La fecha de salida debe ser posterior a la fecha de entrada.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+
+            return true;
         }
+
 
         private void btnReserva_Click(object sender, EventArgs e)
         {
@@ -140,6 +168,8 @@ namespace HotelBook1
         }
     }
     }
+
+
 
 
 
