@@ -30,8 +30,8 @@
         {
             this.reserva = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnnuevareserva = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.reserva)).BeginInit();
             this.SuspendLayout();
             // 
@@ -57,32 +57,33 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "Reservas ";
             // 
-            // button2
+            // btnSalir
             // 
-            this.button2.Location = new System.Drawing.Point(331, 302);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(154, 35);
-            this.button2.TabIndex = 6;
-            this.button2.Text = "Eliminar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.btnSalir.Location = new System.Drawing.Point(331, 302);
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.Size = new System.Drawing.Size(154, 35);
+            this.btnSalir.TabIndex = 6;
+            this.btnSalir.Text = "Salir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.button2_Click);
             // 
-            // button1
+            // btnnuevareserva
             // 
-            this.button1.Location = new System.Drawing.Point(163, 302);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(100, 35);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Modificar";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnnuevareserva.Location = new System.Drawing.Point(163, 302);
+            this.btnnuevareserva.Name = "btnnuevareserva";
+            this.btnnuevareserva.Size = new System.Drawing.Size(100, 35);
+            this.btnnuevareserva.TabIndex = 7;
+            this.btnnuevareserva.Text = "Nueva Reserva";
+            this.btnnuevareserva.UseVisualStyleBackColor = true;
+            this.btnnuevareserva.Click += new System.EventHandler(this.btnnuevareserva_Click);
             // 
             // CosultarReservas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(639, 384);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnnuevareserva);
+            this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.reserva);
             this.Controls.Add(this.label1);
             this.Margin = new System.Windows.Forms.Padding(2);
@@ -99,7 +100,7 @@
         #endregion
         private System.Windows.Forms.DataGridView reserva;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnSalir;
+        private System.Windows.Forms.Button btnnuevareserva;
     }
 }
