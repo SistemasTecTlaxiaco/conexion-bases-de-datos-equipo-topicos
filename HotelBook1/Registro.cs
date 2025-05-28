@@ -7,24 +7,37 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Threading;// Importamos la clase Thread para poder usar hilos
-using Entidades; // Importamos la librería que contiene la clase Usuario
+using System.Threading; // Hilos
+using Entidades; // Librería con clase Usuario
+using System.Security.Cryptography; // Encriptación
 
 namespace HotelBook1
 {
     public partial class Registro : Form
-
-
     {
-        Usuario gestor = new Usuario();// Creamos un objeto gestor para manejar el registro de usuarios
+        Usuario gestor = new Usuario(); // Gestor de usuarios
+
         public Registro()
         {
             InitializeComponent();
             txtcontraseña.UseSystemPasswordChar = true;
         }
 
-
-
+        // Método para encriptar contraseña con SHA-256
+        private string EncriptarSHA256(string texto)
+        {
+            using (SHA256 sha256 = SHA256.Create())
+            {
+                byte[] bytes = Encoding.UTF8.GetBytes(texto);
+                byte[] hash = sha256.ComputeHash(bytes);
+                StringBuilder builder = new StringBuilder();
+                foreach (byte b in hash)
+                {
+                    builder.Append(b.ToString("x2"));
+                }
+                return builder.ToString();
+            }
+        }
 
         // Validar campos del formulario
         private bool ValidarCampos()
@@ -37,27 +50,23 @@ namespace HotelBook1
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(lbContraseña.Text))
+            if (string.IsNullOrWhiteSpace(txtcontraseña.Text))
             {
                 MessageBox.Show("Por favor ingrese una contraseña", "Error",
                               MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                lbContraseña.Focus();
+                txtcontraseña.Focus();
                 return false;
             }
 
             return true;
         }
 
-        // Método para ejecutar el registro en segundo plano
+        // Registro en segundo plano (con encriptación)
         private void EjecutarRegistro(string usuario, string contraseña)
         {
-            // Siempre crea un nuevo objeto Usuario
             Usuario gestor = new Usuario();
             gestor.NUsuario = usuario;
-            gestor.Contraseña = contraseña;
-
-            // Verifica que los datos se estén pasando correctamente
-            MessageBox.Show($"Registrando usuario: {gestor.NUsuario}\nContraseña: {gestor.Contraseña}");
+            gestor.Contraseña = EncriptarSHA256(contraseña); // Encriptar aquí
 
             bool exito = gestor.Registrar();
 
@@ -80,7 +89,7 @@ namespace HotelBook1
         }
 
         private void btnResgistrar_Click(object sender, EventArgs e)
-        { 
+        {
             if (!ValidarCampos()) return;
 
             btnResgistrar.Enabled = false;
@@ -88,8 +97,9 @@ namespace HotelBook1
             // Lanza el registro en un hilo
             Thread hiloRegistro = new Thread(() =>
                 EjecutarRegistro(txtUsuario.Text.Trim(), txtcontraseña.Text.Trim()));
-        hiloRegistro.Start();
+            hiloRegistro.Start();
         }
+
         private void btnCancelar_Click(object sender, EventArgs e)
         {
             this.DialogResult = DialogResult.Cancel;
@@ -98,31 +108,23 @@ namespace HotelBook1
 
         private void Registro_Load(object sender, EventArgs e)
         {
-
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void txtUsuario_TextChanged(object sender, EventArgs e)
         {
             int cursorPos = txtUsuario.SelectionStart;
-
-            // Filtramos el texto para que solo queden letras y espacios
             string textoFiltrado = new string(txtUsuario.Text
-                .Where(c => char.IsLetter(c) || char.IsWhiteSpace(c))
-                .ToArray());
+                .Where(c => char.IsLetter(c) || char.IsWhiteSpace(c)).ToArray());
 
             if (txtUsuario.Text != textoFiltrado)
             {
                 txtUsuario.Text = textoFiltrado;
-
-                // Restauramos la posición del cursor al final del texto válido
                 txtUsuario.SelectionStart = cursorPos > 0 ? cursorPos - 1 : 0;
 
-                // Opcional: mostrar mensaje solo una vez por modificación
                 MessageBox.Show("Solo se permiten letras y espacios.", "Entrada inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
@@ -131,30 +133,26 @@ namespace HotelBook1
         {
             string contraseña = txtcontraseña.Text;
 
-            // Validar solo si tiene exactamente 8 caracteres
-            if (contraseña.Length == 8)
+            if (contraseña.Length >= 8)
             {
                 bool tieneMayuscula = contraseña.Any(char.IsUpper);
+                bool tieneMinuscula = contraseña.Any(char.IsLower);
                 bool tieneNumero = contraseña.Any(char.IsDigit);
+                bool tieneSimbolo = contraseña.Any(c => !char.IsLetterOrDigit(c));
 
-                if (tieneMayuscula && tieneNumero)
+                if (tieneMayuscula && tieneMinuscula && tieneNumero && tieneSimbolo)
                 {
-                    txtcontraseña.BackColor = Color.LightGreen; // Contraseña válida
+                    txtcontraseña.BackColor = Color.LightGreen;
                 }
                 else
                 {
-                    txtcontraseña.BackColor = Color.LightCoral; // Contraseña inválida
-                    MessageBox.Show("La contraseña debe contener al menos una letra mayúscula y un número.",
-                        "Contraseña inválida", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    txtcontraseña.BackColor = Color.LightCoral;
                 }
             }
             else
             {
-                // Si no tiene exactamente 8 caracteres, color neutro
                 txtcontraseña.BackColor = Color.White;
             }
         }
-
     }
-    }
-
+}
