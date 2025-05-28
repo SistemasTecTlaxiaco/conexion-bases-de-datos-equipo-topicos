@@ -20,6 +20,7 @@ namespace HotelBook1
         public Registro()
         {
             InitializeComponent();
+            txtcontraseña.UseSystemPasswordChar = true;
         }
 
 
